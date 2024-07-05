@@ -1,0 +1,22 @@
+.logo{
+    width:5rem;
+
+}
+.header-button{
+    border: none;
+    background-color: rgb(118, 118, 128);
+    color: white;
+    padding: .3rem .5rem;
+    border-radius: .2rem;
+}
+.bg-body-tertiary{
+    background-color: #252b33 !important;
+}
+
+.nav a{
+    color:white !important;
+}
+
+nav{
+    padding: 0 .3rem!important;
+}    
