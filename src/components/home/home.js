@@ -18,7 +18,7 @@ function Home (){
         TRUSTWAY SHIPPING 
         <br/>SERVICE
       </h3>
-      <a className="banner-button">Track Order</a>
+      <a className="banner-button" href="/track">Track Order</a>
       <p>Trustway Shipping Service is a representative logistics operator providing full range of<br/>
          service in the sphere of customs clearance and transportation worldwide for any type of cargo.</p>
 </div>     

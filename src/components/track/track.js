@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import "./track.css"
 
 function Track () {
     const [trackingNumber, setTrackingNumber] = useState("")
@@ -11,8 +11,11 @@ function Track () {
     
 
     return(
-        <div>
-<form className="generate_form" onSubmit={redirect}>
+        <div className="track">
+            <h3>Track Shipment</h3>
+
+            <h5>Enter the Consignment No.</h5>
+<form onSubmit={redirect}>
     <input 
     placeholder="Enter Tracking Number" 
     onChange={(e) => {

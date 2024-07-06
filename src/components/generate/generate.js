@@ -20,7 +20,7 @@ function Generate () {
            <form className="generate_form" onSubmit={submit}>
 <button>Generate Tracking Number</button>
         </form>
-        <p> New Tracking No: {trackingNumber}</p>  
+        <p> New Tracking No: <span className="new_tracking_no">{trackingNumber}</span></p>  
         </div>
        
 

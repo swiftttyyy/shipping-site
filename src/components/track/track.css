@@ -1,0 +1,27 @@
+.track{
+    padding: 5% 10%;
+}
+.track h3{
+    padding-bottom: 10vh;
+}
+.track h5{
+  text-align: center;
+}
+.track form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+}
+.track form button{
+    margin-right: 20vw;
+    border: none;
+    background-color: #6e8197;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .track form button{
+        margin-right: 0;
+    }
+    
+}

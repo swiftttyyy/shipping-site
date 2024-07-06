@@ -9,7 +9,7 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary nav">
       <Container>
-        <Navbar.Brand href="/"><img className="logo" src={logo}/>TrustWay Shipping</Navbar.Brand>
+        <Navbar.Brand href="/"><img className="logo" src={logo}/>Trust<span className='way'>Way</span> Shipping</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

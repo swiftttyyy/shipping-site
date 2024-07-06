@@ -111,7 +111,11 @@ ul{
     color: white;
     padding: .3rem .5rem;
     border-radius: .2rem;
+    text-decoration: none;
 
+}
+.banner-button:hover{
+color: white;
 }
 @media (max-width:800px){
     .banner-info h3{
