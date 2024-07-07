@@ -4,10 +4,14 @@
 }
 .header-button{
     border: none;
-    background-color: rgb(118, 118, 128);
-    color: white;
+    background-color: white;
+   color: black;
     padding: .3rem .5rem;
     border-radius: .2rem;
+}
+.header-button:hover{
+    background-color: rgb(118, 118, 128);
+    color: white;
 }
 .bg-body-tertiary{
     background-color: #252b33 !important;
@@ -22,4 +26,9 @@ nav{
 }    
 .way{
     color:rgb(118, 118, 128)
+}
+.title{
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }

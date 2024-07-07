@@ -9,18 +9,22 @@
 }
 .banner-info{
     position: absolute;    
-    top:60%;
+    top:50%;
     left: 50%;
     right: 10;
     left: 0;
     margin-left: 2vw;
     color: white;
 }
+
 .banner-info h3{
     font-weight: 700;
     font-size: 3rem;
 }
 
+.banner-info div{
+     margin: 1.5rem 0;
+}
 
 .first-section{
     display: flex;
@@ -107,15 +111,17 @@ ul{
 }
 .banner-button{
     border: none;
-    background-color: rgb(118, 118, 128);
-    color: white;
+    background-color: white;
+   color: black;
     padding: .3rem .5rem;
     border-radius: .2rem;
     text-decoration: none;
-
+    margin: 4rem 0;
+ 
 }
 .banner-button:hover{
-color: white;
+    background-color: rgb(118, 118, 128);
+    color: white;
 }
 @media (max-width:800px){
     .banner-info h3{

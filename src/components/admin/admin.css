@@ -1,0 +1,53 @@
+/* Admin.css */
+.admin{
+    margin: 5vh 5vw;
+}
+.admin h3{
+    text-align: center;
+}
+.admin-generate button{
+    margin: 5vh 0;
+    background-color: #252b33;
+    border: none;
+    color: white;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4vh
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #252b33;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: #252b33;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #45a049;
+}

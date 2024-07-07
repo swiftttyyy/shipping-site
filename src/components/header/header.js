@@ -9,23 +9,13 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary nav">
       <Container>
-        <Navbar.Brand href="/"><img className="logo" src={logo}/>Trust<span className='way'>Way</span> Shipping</Navbar.Brand>
+        <Navbar.Brand className="title" href="/"><img className="logo" src={logo}/>Trust<span className='way'>Way</span> Shipping</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/contact">Contact Us</Nav.Link>
+          
           </Nav>
           <Nav>
             <Nav.Link href="/track"><button className='header-button'>Track Shipment</button></Nav.Link>

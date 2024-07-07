@@ -1,0 +1,29 @@
+h3, h4, h5{
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+p, a, li{
+
+  font-family: "Signika Negative", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+button:hover{
+   background-color: white;
+   color: black
+}
+
+/* Ensure the container takes the full height of the viewport */
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Ensure the main content takes all the available space except the footer */
+  .App > div {
+    flex: 1;
+  }
+  
