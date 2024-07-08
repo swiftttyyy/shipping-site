@@ -1,0 +1,15 @@
+.tracking-details{
+    margin: 5vh  0;
+}
+.tracking-details h2{
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+    font-weight: 700;
+}
+.tracking-numbers{
+margin-left: 10vw;
+}
+.tracking-numbers p span{
+    color:#252b33;
+    font-weight: 700;
+}

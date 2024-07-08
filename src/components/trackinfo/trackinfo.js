@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./trackinfo.css"
 
 function TrackInfo() {
   const { trackingNumber } = useParams();
@@ -34,12 +35,20 @@ function TrackInfo() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {order && (
-        <div>
-          <h2>Order Details</h2>
-          <p>Order ID: {order.orderId}</p>
-          <p>Status: {order.status}</p>
-          <p>Tracking Number: {order.trackingNumber}</p>
+        <div className="tracking-details">
+          <h2>Your Tracking Details</h2>
+          <div className="tracking-numbers"> 
+            <p><span>Recepient Name: </span>{order.name}</p>
+              <p><span>Tracking ID:</span> {order.orderId}</p>
+          <p><span>Tracking Number:</span> {order.trackingNumber}</p>
+          <p><span>Delivery Address:</span> {order.address}</p>
+          
+            </div>
+
+            <p>Amount To Be Paid: ${order.amount}</p>
+       
           {/* Display additional order details as needed */}
+          <p>Status: {order.status}</p>
         </div>
       )}
     </div>

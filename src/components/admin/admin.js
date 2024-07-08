@@ -11,7 +11,9 @@ function Admin() {
     const [allList, setAllList] = useState([]);
     const [editTrackingNumber, setEditTrackingNumber] = useState(null);
     const [status, setStatus] = useState("");
-
+    const [amount, setAmount] = useState("")
+    const [address, setAddress] = useState("")
+    const [name, setName] = useState("")
     useEffect(() => {
         async function fetchOrder() {
             try {
@@ -29,22 +31,37 @@ function Admin() {
         fetchOrder();
     }, []);
 
-    const handleEdit = (trackingNumber, currentStatus) => {
+    const handleEdit = (trackingNumber, currentStatus, currentAmount, currentAddress,currentName) => {
         setEditTrackingNumber(trackingNumber);
         setStatus(currentStatus);
+        setAmount(currentAmount)
+        setAddress(currentAddress)
+        setName(currentName)
     };
 
     const handleStatusChange = (e) => {
         setStatus(e.target.value);
     };
+    const  handleAmountChange = (e) => {
+        setAmount(e.target.value)
+    }
+    const  handleAddressChange = (e) => {
+        setAddress(e.target.value)
+    }
+    const  handleNameChange = (e) => {
+        setName(e.target.value)
+    }
 
     const handleSave = async (trackingNumber) => {
         try {
             await axios.put(`${process.env.REACT_APP_API_URL}/admin/update-status/${trackingNumber}`, {
-                status: status
+                status: status,
+                amount: amount,
+                address: address,
+                name: name
             });
             const updatedOrders = allList.map(order => 
-                order.trackingNumber === trackingNumber ? { ...order, status: status } : order
+                order.trackingNumber === trackingNumber ? { ...order, status: status, amount: amount, address: address, name: name} : order
             );
             setAllList(updatedOrders);
             setEditTrackingNumber(null);
@@ -76,7 +93,10 @@ function Admin() {
                 <thead>
                     <tr>
                         <th>Tracking Number</th>
+                        <th>Name</th>
                         <th>Status</th>
+                        <th>Amount</th>
+                        <th>Address</th>
                         <th>Action</th>
                         <th></th>
                     </tr>
@@ -85,6 +105,17 @@ function Admin() {
                     {allList.map(order => (
                         <tr key={order.trackingNumber}>
                             <td>{order.trackingNumber}</td>
+                            <td>
+                                {editTrackingNumber === order.trackingNumber ? (
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={handleNameChange}
+                                    />
+                                ) : (
+                                    order.name
+                                )}
+                            </td>
                             <td>
                                 {editTrackingNumber === order.trackingNumber ? (
                                     <input
@@ -98,6 +129,31 @@ function Admin() {
                             </td>
                             <td>
                                 {editTrackingNumber === order.trackingNumber ? (
+                                    <div>
+
+                                   <span>$</span> <input
+                                        type="text"
+                                        value= {amount}
+                                        onChange={handleAmountChange}
+                                    />
+                                    </div>
+                                ) : (
+                                   `$${order.amount}`
+                                )}
+                            </td> 
+                            <td>
+                                {
+                                    editTrackingNumber === order.trackingNumber ? (
+                                        <input
+                                        type="text"
+                                        value= {address}
+                                        onChange={handleAddressChange}
+                                    />
+                                    ) : (order.address)
+                                }
+                            </td>
+                            <td>
+                                {editTrackingNumber === order.trackingNumber ? (
                                     <button
                                         className="save-button"
                                         onClick={() => handleSave(order.trackingNumber)}
@@ -107,12 +163,13 @@ function Admin() {
                                 ) : (
                                     <button
                                         className="edit-button"
-                                        onClick={() => handleEdit(order.trackingNumber, order.status)}
+                                        onClick={() => handleEdit(order.trackingNumber, order.status, order.amount, order.address,order.name)}
                                     >
                                         <CiEdit/>
                                     </button>
                                 )}
                             </td>
+                           
                             <td>
                                 <button className="delete-button">
                                     <MdDelete onClick={() => handleDelete(order.trackingNumber)} />
