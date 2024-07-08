@@ -89,6 +89,7 @@ function Admin() {
             </a>
            
             <h1>Order List</h1>
+            <div className="table-container" >
             <table>
                 <thead>
                     <tr>
@@ -179,6 +180,7 @@ function Admin() {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
     );
 }
