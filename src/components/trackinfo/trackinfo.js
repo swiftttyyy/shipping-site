@@ -10,7 +10,7 @@ function TrackInfo() {
   const [order, setOrder] = useState(null);
   const [error, setError] = useState(null);
   const [numStatus, setNumStatus] = useState(25)
-
+  const [statusResponse, setStatusResponse] = useState("")
   useEffect(() => {
     async function fetchOrder() {
       try {
@@ -23,15 +23,19 @@ function TrackInfo() {
         console.log(response.data.order);
          if (response.data.order.status == "Pending"){
     setNumStatus(25)
+    setStatusResponse(`This Means We Are currently awaiting a pending payment or experiencing issues related to your package`)
+  } else if (response.data.order.status = "Picked Up"){
+    setNumStatus(50)
+    setStatusResponse(`This Means Your Order is ${response.data.order.status} up from ${response.data.order.fromAddress} and on its way to ${response.data.order.toAddress}`)
   }
   else if(response.data.order.status == "In Transit"){
     setNumStatus(75)
+    setStatusResponse(`This Means Your Order is ${response.data.order.status} from ${response.data.order.fromAddress} and on its way to ${response.data.order.toAddress}`)
   }
-  else if (response.data.order.status = "Picked Up"){
-    setNumStatus(50)
-  }
+ 
   else if(response.data.order.status == "Delivered") {
     setNumStatus(100)
+    setStatusResponse(`Congratulations your item is Delivered and is at ${response.data.order.toAddress}`)
   }
       } catch (error) {
         console.error("Error fetching order:", error);
@@ -58,9 +62,11 @@ function TrackInfo() {
             <p><span>Recepient Name: </span>{order.name}</p>
               <p><span>Tracking ID:</span> {order.orderId}</p>
           <p><span>Tracking Number:</span> {order.trackingNumber}</p>
-          <p><span>Delivery Address:</span> {order.address}</p>
+          <p><span>Delivery Address:</span> {order.toAddress}</p>
+          <p><span>Delivery Address:</span> {order.fromAddress}</p>
                       <p><span>Amount To Be Paid:</span> ${order.amount}</p>
-
+ 
+ <p className="status-response">Your Item is {order.status} {statusResponse} </p>
             </div>
 
        

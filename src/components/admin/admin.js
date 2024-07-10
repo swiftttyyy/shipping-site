@@ -12,7 +12,8 @@ function Admin() {
     const [editTrackingNumber, setEditTrackingNumber] = useState(null);
     const [status, setStatus] = useState("");
     const [amount, setAmount] = useState("")
-    const [address, setAddress] = useState("")
+    const [fromAddress, setFromAddress] = useState("")
+    const [toAddress, setToAddress] = useState("")
     const [name, setName] = useState("")
     useEffect(() => {
         async function fetchOrder() {
@@ -31,11 +32,12 @@ function Admin() {
         fetchOrder();
     }, []);
 
-    const handleEdit = (trackingNumber, currentStatus, currentAmount, currentAddress,currentName) => {
+    const handleEdit = (trackingNumber, currentStatus, currentAmount, currentFromAddress,currentToAddress, currentName) => {
         setEditTrackingNumber(trackingNumber);
         setStatus(currentStatus);
         setAmount(currentAmount)
-        setAddress(currentAddress)
+        setFromAddress(currentFromAddress)
+        setToAddress(currentToAddress)
         setName(currentName)
     };
 
@@ -45,8 +47,11 @@ function Admin() {
     const  handleAmountChange = (e) => {
         setAmount(e.target.value)
     }
-    const  handleAddressChange = (e) => {
-        setAddress(e.target.value)
+    const  handleFromAddressChange = (e) => {
+        setFromAddress(e.target.value)
+    }
+    const  handleToAddressChange = (e) => {
+        setToAddress(e.target.value)
     }
     const  handleNameChange = (e) => {
         setName(e.target.value)
@@ -56,12 +61,14 @@ function Admin() {
         try {
             await axios.put(`${process.env.REACT_APP_API_URL}/admin/update-status/${trackingNumber}`, {
                 status: status,
-                amount: amount,
-                address: address,
+                amount: amount,  
+                 toAddress: toAddress,
+                fromAddress: fromAddress,
+             
                 name: name
             });
             const updatedOrders = allList.map(order => 
-                order.trackingNumber === trackingNumber ? { ...order, status: status, amount: amount, address: address, name: name} : order
+                order.trackingNumber === trackingNumber ? { ...order, status: status, amount: amount, toAddress: toAddress, fromAddress: fromAddress, name: name} : order
             );
             setAllList(updatedOrders);
             setEditTrackingNumber(null);
@@ -97,7 +104,8 @@ function Admin() {
                         <th>Name</th>
                         <th>Status</th>
                         <th>Amount</th>
-                        <th>Address</th>
+                        <th>To Address</th>
+                        <th>From Address</th>
                         <th>Action</th>
                         <th></th>
                     </tr>
@@ -147,10 +155,21 @@ function Admin() {
                                     editTrackingNumber === order.trackingNumber ? (
                                         <input
                                         type="text"
-                                        value= {address}
-                                        onChange={handleAddressChange}
+                                        value= {toAddress}
+                                        onChange={handleToAddressChange}
                                     />
-                                    ) : (order.address)
+                                    ) : (order.toAddress)
+                                }
+                            </td>
+                            <td>
+                                {
+                                    editTrackingNumber === order.trackingNumber ? (
+                                        <input
+                                        type="text"
+                                        value= {fromAddress}
+                                        onChange={handleFromAddressChange}
+                                    />
+                                    ) : (order.fromAddress)
                                 }
                             </td>
                             <td>
