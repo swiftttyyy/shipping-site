@@ -63,7 +63,7 @@ function TrackInfo() {
               <p><span>Tracking ID:</span> {order.orderId}</p>
           <p><span>Tracking Number:</span> {order.trackingNumber}</p>
           <p><span>Delivery Address:</span> {order.toAddress}</p>
-          <p><span>Delivery Address:</span> {order.fromAddress}</p>
+          <p><span>From Address:</span> {order.fromAddress}</p>
                       <p><span>Amount To Be Paid:</span> ${order.amount}</p>
  
  <p className="status-response">Your Item is {order.status} {statusResponse} </p>
