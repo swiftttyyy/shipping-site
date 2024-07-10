@@ -140,9 +140,9 @@ function Admin() {
                                 {editTrackingNumber === order.trackingNumber ? (
                                     <div>
 
-                                   <span>$</span> <input
+                                  <input
                                         type="text"
-                                        value= {amount}
+                                        value= {`$${amount}`}
                                         onChange={handleAmountChange}
                                     />
                                     </div>
@@ -183,7 +183,7 @@ function Admin() {
                                 ) : (
                                     <button
                                         className="edit-button"
-                                        onClick={() => handleEdit(order.trackingNumber, order.status, order.amount, order.address,order.name)}
+                                        onClick={() => handleEdit(order.trackingNumber, order.status, order.amount, order.toAddress, order.fromAddress,order.name)}
                                     >
                                         <CiEdit/>
                                     </button>
