@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./trackinfo.css"
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 function TrackInfo() {
   const { trackingNumber } = useParams();
   const [order, setOrder] = useState(null);
   const [error, setError] = useState(null);
+  const [numStatus, setNumStatus] = useState(25)
 
   useEffect(() => {
     async function fetchOrder() {
@@ -18,6 +21,18 @@ function TrackInfo() {
         setOrder(response.data.order);
         setError(null);
         console.log(response.data.order);
+         if (response.data.order.status == "Pending"){
+    setNumStatus(25)
+  }
+  else if(response.data.order.status == "In Transit"){
+    setNumStatus(75)
+  }
+  else if (response.data.order.status = "Picked Up"){
+    setNumStatus(50)
+  }
+  else if(response.data.order.status == "Delivered") {
+    setNumStatus(100)
+  }
       } catch (error) {
         console.error("Error fetching order:", error);
         setOrder(null);
@@ -30,8 +45,10 @@ function TrackInfo() {
     fetchOrder();
   }, [trackingNumber]);
 
+ 
+
   return (
-    <div>
+    <div className="track-info-container">
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {order && (
@@ -42,13 +59,22 @@ function TrackInfo() {
               <p><span>Tracking ID:</span> {order.orderId}</p>
           <p><span>Tracking Number:</span> {order.trackingNumber}</p>
           <p><span>Delivery Address:</span> {order.address}</p>
-          
+                      <p><span>Amount To Be Paid:</span> ${order.amount}</p>
+
             </div>
 
-            <p>Amount To Be Paid: ${order.amount}</p>
        
           {/* Display additional order details as needed */}
-          <p>Status: {order.status}</p>
+          <div className="status-container"> 
+
+            <p><span>Status:</span> {order.status}</p>
+
+            <div>
+            <ProgressBar striped variant="success" now={numStatus} label={`${numStatus}%`}/>
+            </div>
+
+            </div>
+         
         </div>
       )}
     </div>

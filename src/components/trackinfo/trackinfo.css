@@ -1,3 +1,6 @@
+.track-info-container{
+    margin-bottom: 20vh;
+}
 .tracking-details{
     margin: 5vh  0;
 }
@@ -11,5 +14,13 @@ margin-left: 10vw;
 }
 .tracking-numbers p span{
     color:#252b33;
+    font-weight: 700;
+}
+.status-container{
+    text-align: center;
+  margin: 0 5vw;
+
+}
+.status-container p span {
     font-weight: 700;
 }
