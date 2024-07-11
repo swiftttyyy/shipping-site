@@ -15,9 +15,15 @@
   margin-bottom: 10vh;
 }
 .track form{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center ;
+}
+.track input{
+    width: 30%;
+    margin-right: 2rem;
+    border-radius: .3rem;
 }
 .track form button{
     margin-right: 20vw;
@@ -26,17 +32,32 @@
     color: white;
 }
 
+
 @media (max-width: 500px) {
+    .track form{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: space-between;
+    }
     .track form button{
         margin-right: 0;
+        font-size: 14px;
     }
     .track{
         margin-top: 6vh;
-        margin-bottom: 10vh
+        margin-bottom: 10vh;
+        padding-right: 4vw;
+        padding-left: 4vw;
     }.track h3{
         padding-bottom: 5vh;
+        font-size: 1.3rem;
     }
     .track h5{
         margin-bottom: 5vh;
+        font-size: 1rem;
     }
+    .track input{
+    width: 50vw;
+}
 }

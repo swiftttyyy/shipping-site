@@ -15,18 +15,13 @@ function Footer () {
      <ul>
      <li><Link className="link" to="/">Home</Link></li>
  
-        <li><Link className="link" to="/techspec">Technical Specifications</Link></li>
         <li><Link className="link" to="/contact">Contact Us</Link></li>
      </ul>
-     <div>
-        <BsPinMap className="icon"/>
-
-    
-     </div>
+ 
      <div className="icons">
      
      <div className="contacts-link">
-        <BsTelephone className="icon"/>
+       <a href="mailto:admin@trustwayshipping.com"> <BsEnvelope className="icon"/> admin@trustwayshipping.com</a> 
 </div>
      </div>
      </section>

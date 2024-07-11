@@ -32,7 +32,7 @@ function Home (){
                 <div className="infodiv bder-btm">
                 <img src={delivery} alt="delivery package image"/>
                 <div className="numNtext">
-            <p className="num">10000</p>
+            <p className="num">3000000+</p>
                 <p className="greytext">Fast Delivery</p>
                 </div>
                 </div>
@@ -40,7 +40,7 @@ function Home (){
                 <div className="infodiv bder-btm">    
                 <img src={customer} alt="customers image"/>
                 <div className="numNtext">
-                <p className="num">150+</p>
+                <p className="num">1million+</p>
                 <p className="greytext">Happy customers</p>
                 </div>
                 </div>

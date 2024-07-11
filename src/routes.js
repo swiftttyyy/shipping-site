@@ -15,8 +15,8 @@ export const router = createBrowserRouter([
     children: [
 {element : <Home/>, path: "/" },
 {element : <TrackInfo/>, path: "/tracking/:trackingNumber" },
-{element : <Generate/>, path: "/admin/generate"},
-{element : <Admin/>, path: "/admin"},
+{element : <Generate/>, path: "/xgzKuYsMNEiZ/generate"},
+{element : <Admin/>, path: "/xgzKuYsMNEiZ"},
 {element :<Track/>, path: "track"},
 {element : <Contact/>, path: "/contact"}
     ],

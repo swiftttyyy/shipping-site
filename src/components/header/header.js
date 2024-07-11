@@ -7,13 +7,12 @@ import "./header.css"
 
 function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary nav">
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="bg-body-tertiary nav">
       <Container>
         <Navbar.Brand className="title" href="/"><img className="logo" src={logo}/>Trust<span className='way'>Way</span> Shipping</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="custom-toggler" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>
           
           </Nav>

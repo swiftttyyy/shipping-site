@@ -32,3 +32,9 @@ nav{
     font-optical-sizing: auto;
     font-style: normal;
 }
+.navbar-toggler.custom-toggler:hover .navbar-toggler-icon {
+    background-color: #000; /* Change the color to dark */
+  }
+  .navbar-toggler:hover{
+background-color: #000;
+  }

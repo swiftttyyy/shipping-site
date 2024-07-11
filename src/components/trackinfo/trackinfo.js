@@ -78,9 +78,9 @@ function TrackInfo() {
             <div>
             <ProgressBar striped variant="success" now={numStatus} label={`${numStatus}%`}/>
             </div>
+         <p className="help">Need help? send us an email at <a href="mailto:help@trustwayshipping.com">help@trustwayshipping.com</a></p>
 
             </div>
-         
         </div>
       )}
     </div>
